@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build --base-href 'https://richrd77.github.io/gangwar-app/'",
+    "build": "ng build --base-href 'https://richrd77.github.io/jatri-praking/'",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
