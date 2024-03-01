@@ -1,8 +1,7 @@
 <div class="wrapper">
     <div class="reg-box">
         <h1>Registration</h1>
-        <form *ngIf="helper.fGroup" 
-            [formGroup]="helper.fGroup" (ngSubmit)="helper.Save()">
+        <form *ngIf="helper.fGroup" [formGroup]="helper.fGroup" (ngSubmit)="helper.Save()">
             <div class="row">
                 <label>
                     <span>Photo:</span>
@@ -12,6 +11,10 @@
                         <!-- <span>No Photo uploaded</span> -->
                     </div>
                 </label>
+                <button mat-fab color="primary" type="button" (click)="cam.click()">
+                    <mat-icon>photo_camera</mat-icon>
+                </button>
+                <input style="display: none;" type="file" capture="camera" accept="image/*" #cam (change)="helper.OnFileSelected($event)">
             </div>
             <div class="row"><label><span>Mobile Number:</span><input formControlName="mobile" type="tel"></label>
             </div>

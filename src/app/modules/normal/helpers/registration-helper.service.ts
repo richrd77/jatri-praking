@@ -15,4 +15,8 @@ export class RegistrationHelperService {
     public Save(): void {
         console.log('submit', this.fGroup.valid, this.fGroup);
     }
+
+    public OnFileSelected(ev: any): void {
+        console.log(ev);
+    }
 }
