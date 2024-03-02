@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { NgxScannerQrcodeComponent, ScannerQRCodeResult, ScannerQRCodeSelectedFiles } from 'ngx-scanner-qrcode';
+import { NgxScannerQrcodeComponent, ScannerQRCodeResult } from 'ngx-scanner-qrcode';
 
 @Component({
   selector: 'app-qr-reader',
@@ -7,13 +7,8 @@ import { NgxScannerQrcodeComponent, ScannerQRCodeResult, ScannerQRCodeSelectedFi
   styleUrl: './qr-reader.component.scss'
 })
 export class QrReaderComponent {
-  public qrCodeResult: ScannerQRCodeSelectedFiles[] = [];
-  public qrCodeResult2: ScannerQRCodeSelectedFiles[] = [];
 
   @ViewChild('action') action!: NgxScannerQrcodeComponent;
-
-  public percentage = 80;
-  public quality = 100;
 
   public handle(action: any, fn: string): void {
     alert('handle ' + fn);
@@ -31,9 +26,8 @@ export class QrReaderComponent {
   }
 
   public onEvent(e: ScannerQRCodeResult[], action?: any): void {
-    // e && action && action.pause();
-    var res = e.map(d => d.value);
-    alert('onevent ' + res[0]);
-    console.log('onevent', e.map(d => d.value));
+    this.handle(action, 'stop');
+    var res = e.map(d => d.value)[0];
+    alert('onevent; ' + res);
   }
 }
