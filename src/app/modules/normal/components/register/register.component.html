@@ -6,7 +6,7 @@
                 <label>Photo:</label>
                 <div class="img">
                     <img (click)="ShowPhoto()" *ngIf="(helper.Photo$|async)" [src]="(helper.Photo$|async)|safeimage">
-                    <span *ngIf="!(helper.Photo$|async)">No Photo uploaded</span>
+                    <img *ngIf="!(helper.Photo$|async)" src="https://i.pinimg.com/564x/c0/c8/17/c0c8178e509b2c6ec222408e527ba861.jpg">
                     <button mat-fab color="primary" type="button" (click)="cam.click()">
                         <mat-icon>photo_camera</mat-icon>
                     </button>

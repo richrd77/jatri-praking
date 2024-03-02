@@ -6,7 +6,7 @@ div.wrapper {
     > div.reg-box {
         background-color: white;
         width: 70%;
-        box-shadow: 0 0 8px 0 rgba(0,0,0,0.3);
+        box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.3);
         padding: 1em;
         max-width: 700px;
         display: flex;
@@ -41,24 +41,20 @@ div.wrapper {
                         width: 200px;
                         border: 1px solid;
                         position: relative;
+                        border-radius: 50%;
                         > img {
+                            border-radius: 50%;
                             display: inline-block;
                             height: 100%;
                             width: 100%;
                             object-fit: contain;
                         }
-                        > span {
-                        }
                         > button {
                             position: absolute;
-                            bottom: 0;
-                            right: 0;
+                            bottom: 20px;
+                            right: -20px;
                         }
                     }
-                }
-                > label {
-                }
-                > input {
                 }
             }
         }
