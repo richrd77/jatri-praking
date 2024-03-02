@@ -21,13 +21,9 @@
             </div>
             <div class="row"><label><span>Vehicle Number:</span><input formControlName="vehicle" type="text"></label>
             </div>
-            <div class="row pic">
+            <div class="row only">
                 <label>
                     <span>QR Code:</span>
-                    <div class="img">
-                        <img (click)="ShowQR()" *ngIf="(helper.QR$|async)" [src]="(helper.QR$|async)|safeimage">
-                        <span *ngIf="!(helper.QR$|async)">QR code missing</span>
-                    </div>
                 </label>
                 <button mat-raised-button (click)="helper.ShowScan()" color="primary" type="button">
                     Scan QR Code
