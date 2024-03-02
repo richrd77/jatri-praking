@@ -1,0 +1,45 @@
+<div class="wrapper">
+    <div class="reg-box">
+        <h1>Checkout</h1>
+        <div *ngIf="(helper.detail$|async) as det">
+            <div class="row pic">
+                <label>
+                    <span>Photo:</span>
+                    <div class="img">
+                        <img (click)="ShowPhoto()" *ngIf="det.photo" [src]="det.photo">
+                        <span *ngIf="!det.photo">No Photo uploaded</span>
+                    </div>
+                </label>
+            </div>
+            <div class="row">
+                <label>
+                    <span class="key">Mobile Number:</span>
+                    <span class="value">{{det.Phone}}</span>
+                </label>
+            </div>
+            <div class="row">
+                <label>
+                    <span class="key">Vehicle Number:</span>
+                    <span class="value">{{det.Vehicle}}</span>
+                </label>
+            </div>
+            <div class="row pic">
+                <label>
+                    <span>QR Code:</span>
+                    <div class="img">
+                        <img (click)="ShowQR()" *ngIf="det.qr" [src]="det.qr">
+                        <span *ngIf="!det.qr">QR code missing</span>
+                    </div>
+                </label>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ng-template #person>
+    <img class="pic-fs" [src]="(helper.detail$|async)?.photo|safeimage">
+</ng-template>
+
+<ng-template #qr>
+    <img class="pic-fs" [src]="(helper.detail$|async)?.qr|safeimage">
+</ng-template>

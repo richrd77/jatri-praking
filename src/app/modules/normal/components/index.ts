@@ -1,4 +1,5 @@
+import { DetailsComponent } from "./details/details.component";
 import { QrReaderComponent } from "./qr-reader/qr-reader.component";
 import { RegisterComponent } from "./register/register.component";
 
-export { RegisterComponent, QrReaderComponent }
+export { RegisterComponent, QrReaderComponent, DetailsComponent }

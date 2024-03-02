@@ -14,7 +14,7 @@ div.wrapper {
         @media (max-width: 864px) {
             width: 100%;
         }
-        > form {
+        > div {
             > div.row {
                 margin: 1em 0;
                 > label {
@@ -42,44 +42,6 @@ div.wrapper {
                     }
                 }
             }
-            > div.row.pic {
-                margin: 1em 0;
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                align-items: center;
-                justify-items: start;
-                gap: 2em;
-                > label {
-                    display: grid;
-                    grid-template-columns: 200px 1fr;
-                    gap: 1em;
-                    @media (max-width: 864px) {
-                        grid-template-columns: 1fr;
-                        grid-template-rows: 1em 1fr;
-                        gap: 1.5em;
-                    }
-                    > span {
-                        font-weight: 400;
-                    }
-                    > div.img {
-                        height: 100px;
-                        width: 100px;
-                        border: 1px solid;
-                        > img {
-                            display: inline-block;
-                            height: 100%;
-                            width: 100%;
-                            object-fit: contain;
-                        }
-                    }
-                }
-            }
-            > div.row:nth-of-type(5) {
-                > button:nth-of-type(1) {
-                    margin: 0 1em;
-                }
-            }
         }
     }
 }
-
