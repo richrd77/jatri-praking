@@ -1,3 +1,3 @@
-<app-detail-facade [title]="'Checkin'">
-    <button mat-raised-button>Checkin</button>
+<app-detail-facade [title]="'Checkin'" (LoadComplete)="HandleBtnEnable()">
+    <button mat-raised-button #btn disabled>Checkin</button>
 </app-detail-facade>
