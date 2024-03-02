@@ -7,6 +7,7 @@ import { NormalModule } from './modules/normal/normal.module';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { APP_BASE_HREF } from '@angular/common';
 import { JatriMatModue } from './modules/mat/jatri-mat.module';
+import { AdminModule } from './modules/admin/admin.module';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { JatriMatModue } from './modules/mat/jatri-mat.module';
     AppRoutingModule,
     JatriMatModue,
     NormalModule,
+    AdminModule
   ],
   providers: [
     provideAnimationsAsync(),

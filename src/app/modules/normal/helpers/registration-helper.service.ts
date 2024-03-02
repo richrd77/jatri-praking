@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { MatDialog } from "@angular/material/dialog";
 import { BehaviorSubject, Observable, defer } from "rxjs";
 import { QrReaderComponent } from "../components";
+import { Registration } from "../models";
 
 @Injectable()
 export class RegistrationHelperService {
@@ -59,5 +60,7 @@ export class RegistrationHelperService {
     public Save(): void {
         alert(JSON.stringify(this.fGroup.getRawValue()));
         console.log('submit', this.fGroup.valid, this.fGroup.getRawValue());
+        const dataTobePosted = new Registration(this.fGroup.getRawValue());
+        dataTobePosted.photo = this.photoBehavour.value;
     }
 }

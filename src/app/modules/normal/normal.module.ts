@@ -16,7 +16,7 @@ const routes: Routes = [
     { path: 'register', component: RegisterComponent },
     { path: 'checkout', component: CheckoutComponent },
     { path: 'checkin', component: CheckinComponent },
-    { path: '**', component: HomeComponent },
+    { path: '', component: HomeComponent, pathMatch: 'full' },
 ];
 
 LOAD_WASM().subscribe();
