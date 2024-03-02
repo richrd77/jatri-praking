@@ -10,6 +10,7 @@ import {
 import { ReactiveFormsModule } from "@angular/forms";
 import { LOAD_WASM, NgxScannerQrcodeModule } from "ngx-scanner-qrcode";
 import { SafeImage } from "../common/pipes/safe-image.pipe";
+import { DetailFacadeComponent } from './components/detail-facade/detail-facade.component';
 
 const routes: Routes = [
     { path: 'register', component: RegisterComponent },
@@ -20,7 +21,7 @@ const routes: Routes = [
 LOAD_WASM().subscribe();
 
 @NgModule({
-    declarations: [HomeComponent, RegisterComponent, QrReaderComponent, DetailsComponent, CheckoutComponent],
+    declarations: [HomeComponent, RegisterComponent, QrReaderComponent, DetailsComponent, CheckoutComponent, DetailFacadeComponent],
     exports: [RouterModule],
     imports: [JatriCommonModue, CommonModule,
         RouterModule.forChild(routes), ReactiveFormsModule,

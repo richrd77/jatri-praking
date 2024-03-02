@@ -1,4 +1,4 @@
-import { Component, TemplateRef, ViewChild } from '@angular/core';
+import { Component, Input, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { DetailsHelper } from '../../helpers/details-helper.service';
 import { MatDialog } from '@angular/material/dialog';
 
@@ -8,7 +8,9 @@ import { MatDialog } from '@angular/material/dialog';
   styleUrl: './details.component.scss',
   providers: [DetailsHelper]
 })
-export class DetailsComponent {
+export class DetailsComponent implements OnInit {
+
+  @Input({ required: true }) public key: string;
 
   @ViewChild('person', { read: TemplateRef }) private personTemplate: TemplateRef<any> | null;
   @ViewChild('qr', { read: TemplateRef }) private qrTemplate: TemplateRef<any> | null;
@@ -17,6 +19,13 @@ export class DetailsComponent {
     public helper: DetailsHelper) {
     this.personTemplate = null;
     this.qrTemplate = null;
+    this.key = '';
+  }
+
+  ngOnInit(): void {
+    if(this.key) {
+      this.helper.LoadDetails(this.key);
+    }
   }
 
   public ShowPhoto(): void {

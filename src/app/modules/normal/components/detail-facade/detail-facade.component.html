@@ -1,0 +1,12 @@
+<div class="wrapper">
+    <div class="own">
+        <h1>Checkout</h1>
+        <div class="row">
+            <button mat-raised-button color="primary" (click)="helper.ScanQrCode()">Scan QR Code</button>
+            <button mat-raised-button>Checkout</button>
+        </div>
+    </div>
+    <div class="other">
+        <app-details *ngIf="(helper.ScannedKey$|async) as key" [key]="key"></app-details>
+    </div>
+</div>
