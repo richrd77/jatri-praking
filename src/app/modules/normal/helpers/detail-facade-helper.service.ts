@@ -26,6 +26,7 @@ export class DetailFacadeHelperService {
         ref.afterClosed()
             .subscribe(k => {
                 this.keySubject.next(k);
+                alert('received frm qr ' + k + !!k);
                 this.isReadSubject.next(!!k)
             });
     }
