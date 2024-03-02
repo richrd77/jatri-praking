@@ -6,6 +6,10 @@ import { Component } from "@angular/core";
     <button mat-raised-button (click)="Add()" color="primary">Mat</button>
     <p>{{val}}</p>
     <a routerLink="register">Register</a>
+    <ngx-scanner-qrcode #action="scanner"></ngx-scanner-qrcode>
+    <span>{{ action.data.value | json }}</span>
+    <span>{{ action.data | async | json }}</span>
+    <button (click)="action.isStart ? action.stop() : action.start()">{{action.isStart ? 'Stop' : 'Start'}}</button>
     `
 })
 export class HomeComponent {
