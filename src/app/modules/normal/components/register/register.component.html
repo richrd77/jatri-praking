@@ -3,33 +3,32 @@
         <h1>Registration</h1>
         <form *ngIf="helper.fGroup" [formGroup]="helper.fGroup" (ngSubmit)="helper.Save()">
             <div class="row pic">
-                <label>
-                    <span>Photo:</span>
-                    <div class="img">
-                        <img (click)="ShowPhoto()" *ngIf="(helper.Photo$|async)"
-                            [src]="(helper.Photo$|async)|safeimage">
-                        <span *ngIf="!(helper.Photo$|async)">No Photo uploaded</span>
-                    </div>
-                </label>
-                <button mat-fab color="primary" type="button" (click)="cam.click()">
-                    <mat-icon>photo_camera</mat-icon>
-                </button>
+                <label>Photo:</label>
+                <div class="img">
+                    <img (click)="ShowPhoto()" *ngIf="(helper.Photo$|async)" [src]="(helper.Photo$|async)|safeimage">
+                    <span *ngIf="!(helper.Photo$|async)">No Photo uploaded</span>
+                    <button mat-fab color="primary" type="button" (click)="cam.click()">
+                        <mat-icon>photo_camera</mat-icon>
+                    </button>
+                </div>
                 <input style="display: none;" type="file" capture="camera" accept="image/*" #cam
                     (change)="helper.OnFileSelected($event)">
             </div>
-            <div class="row"><label><span>Mobile Number:</span><input formControlName="mobile" type="tel"></label>
+            <div class="row">
+                <label for="mob">Mobile Number:</label>
+                <input id="mob" formControlName="mobile" type="tel">
             </div>
-            <div class="row"><label><span>Vehicle Number:</span><input formControlName="vehicle" type="text"></label>
+            <div class="row">
+                <label for="v">Vehicle Number:</label>
+                <input id="v" formControlName="vehicle" type="text">
             </div>
             <div class="row only">
-                <label>
-                    <span>QR Code:</span>
-                </label>
+                <label>QR Code:</label>
                 <button mat-raised-button (click)="helper.ShowScan()" color="primary" type="button">
                     Scan QR Code
                 </button>
             </div>
-            <div class="row">
+            <div class="row action">
                 <button mat-raised-button type="submit" color="primary">Save</button>
                 <button mat-raised-button type="button">Cancel</button>
             </div>
