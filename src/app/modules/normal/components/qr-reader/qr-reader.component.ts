@@ -32,7 +32,8 @@ export class QrReaderComponent {
 
   public onEvent(e: ScannerQRCodeResult[], action?: any): void {
     // e && action && action.pause();
-    alert('onevent');
-    console.log('onevent', e);
+    var res = e.map(d => d.value);
+    alert('onevent ' + res[0]);
+    console.log('onevent', e.map(d => d.value));
   }
 }

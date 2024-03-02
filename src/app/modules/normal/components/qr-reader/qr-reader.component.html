@@ -1,6 +1,5 @@
 <ngx-scanner-qrcode #action="scanner" (event)="onEvent($event, action)"></ngx-scanner-qrcode>
 <span>{{ action.data.value | json }}</span>
-<span>{{ action.data | async | json }}</span>
 <button mat-raised-button (click)="handle(action, action.isStart ? 'stop' : 'start')">
     {{action.isStart ? 'Stop' : 'Start'}}
 </button>
