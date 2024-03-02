@@ -20,7 +20,6 @@ export class QrReaderComponent implements OnInit {
   @ViewChild('action') action!: NgxScannerQrcodeComponent;
 
   public handle(action: any, fn: string): void {
-    alert('handle ' + fn);
     const playDeviceFacingBack = (devices: any[]) => {
       // front camera or back camera check here!
       const device = devices.find(f => (/back|rear|environment/gi.test(f.label))); // Default Back Facing Camera
@@ -37,7 +36,6 @@ export class QrReaderComponent implements OnInit {
   public onEvent(e: ScannerQRCodeResult[], action?: any): void {
     this.handle(action, 'stop');
     var res = e.map(d => d.value)[0];
-    alert('onevent; ' + res);
     this.ref.close(res);
   }
 }

@@ -22,7 +22,8 @@ export class RegistrationHelperService {
     constructor(private dialog: MatDialog) {
         this.fGroup = new FormGroup({
             mobile: new FormControl('', [Validators.required, Validators.pattern('\\d{10}')]),
-            vehicle: new FormControl('', [Validators.required])
+            vehicle: new FormControl('', [Validators.required]),
+            key: new FormControl<string | undefined>(undefined)
         })
     }
 
@@ -50,10 +51,13 @@ export class RegistrationHelperService {
 
     public ShowScan(): void {
         const ref = this.dialog.open(QrReaderComponent);
-        ref.afterClosed().subscribe(k => alert('data from QR is ' + k));
+
+        ref.afterClosed()
+            .subscribe(k => this.fGroup.patchValue({ key: k }));
     }
 
     public Save(): void {
-        console.log('submit', this.fGroup.valid, this.fGroup);
+        alert(JSON.stringify(this.fGroup.getRawValue()));
+        console.log('submit', this.fGroup.valid, this.fGroup.getRawValue());
     }
 }
