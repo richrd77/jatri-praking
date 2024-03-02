@@ -17,6 +17,7 @@ export class RegistrationHelperService {
     }
 
     public OnFileSelected(ev: any): void {
+        alert('photo uploaded');
         console.log(ev);
     }
 }
