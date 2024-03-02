@@ -20,23 +20,13 @@ export class RegisterComponent {
 
   public ShowPhoto(): void {
     if (this.personTemplate) {
-      this.dialog.open<TemplateRef<any>>(this.personTemplate, {
-        maxWidth: '90vw',
-        maxHeight: '90vh',
-        height: '100%',
-        width: '100%'
-      })
+      this.dialog.open<TemplateRef<any>>(this.personTemplate)
     }
   }
 
   public ShowQR(): void {
     if (this.qrTemplate) {
-      this.dialog.open<TemplateRef<any>>(this.qrTemplate, {
-        maxWidth: '90vw',
-        maxHeight: '90vh',
-        height: '100%',
-        width: '100%'
-      })
+      this.dialog.open<TemplateRef<any>>(this.qrTemplate);
     }
   }
 }
