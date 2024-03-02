@@ -1,6 +1,8 @@
 import { Injectable } from "@angular/core";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
+import { MatDialog } from "@angular/material/dialog";
 import { BehaviorSubject, Observable, defer } from "rxjs";
+import { QrReaderComponent } from "../components";
 
 @Injectable()
 export class RegistrationHelperService {
@@ -17,7 +19,7 @@ export class RegistrationHelperService {
 
     public fGroup: FormGroup;
 
-    constructor() {
+    constructor(private dialog: MatDialog) {
         this.fGroup = new FormGroup({
             mobile: new FormControl('', [Validators.required, Validators.pattern('\\d{10}')]),
             vehicle: new FormControl('', [Validators.required])
@@ -44,6 +46,11 @@ export class RegistrationHelperService {
                 reader.readAsDataURL(file);
             }
         })
+    }
+
+    public ShowScan(): void {
+        const ref = this.dialog.open(QrReaderComponent);
+        ref.afterClosed().subscribe(k => alert('data from QR is ' + k));
     }
 
     public Save(): void {

@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgxScannerQrcodeComponent, ScannerQRCodeResult } from 'ngx-scanner-qrcode';
 
 @Component({
@@ -6,7 +6,13 @@ import { NgxScannerQrcodeComponent, ScannerQRCodeResult } from 'ngx-scanner-qrco
   templateUrl: './qr-reader.component.html',
   styleUrl: './qr-reader.component.scss'
 })
-export class QrReaderComponent {
+export class QrReaderComponent implements OnInit {
+
+  ngOnInit(): void {
+    setTimeout(() => {
+      this.handle(this.action, 'start');
+    }, 10);
+  }
 
   @ViewChild('action') action!: NgxScannerQrcodeComponent;
 

@@ -2,7 +2,7 @@
     <div class="reg-box">
         <h1>Registration</h1>
         <form *ngIf="helper.fGroup" [formGroup]="helper.fGroup" (ngSubmit)="helper.Save()">
-            <div class="row">
+            <div class="row pic">
                 <label>
                     <span>Photo:</span>
                     <div class="img">
@@ -21,7 +21,7 @@
             </div>
             <div class="row"><label><span>Vehicle Number:</span><input formControlName="vehicle" type="text"></label>
             </div>
-            <div class="row">
+            <div class="row pic">
                 <label>
                     <span>QR Code:</span>
                     <div class="img">
@@ -29,6 +29,9 @@
                         <span *ngIf="!(helper.QR$|async)">QR code missing</span>
                     </div>
                 </label>
+                <button mat-raised-button (click)="helper.ShowScan()" color="primary" type="button">
+                    Scan QR Code
+                </button>
             </div>
             <div class="row">
                 <button mat-raised-button type="submit" color="primary">Save</button>
