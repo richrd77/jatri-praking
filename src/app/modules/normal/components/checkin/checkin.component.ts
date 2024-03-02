@@ -5,13 +5,4 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
   templateUrl: './checkin.component.html',
   styleUrl: './checkin.component.scss'
 })
-export class CheckinComponent {
-  
-  @ViewChild('btn') private btn: ElementRef<HTMLButtonElement> | undefined;
-
-  HandleBtnEnable(): void {
-    if (this.btn) {
-      this.btn.nativeElement.disabled = false;
-    }
-  }
-}
+export class CheckinComponent { }
