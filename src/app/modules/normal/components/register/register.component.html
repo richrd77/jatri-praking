@@ -6,15 +6,16 @@
                 <label>
                     <span>Photo:</span>
                     <div class="img">
-                        <img (click)="ShowPhoto()"
-                            src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQ_Y3DVd2Daj0zRYMiVMh8XE9JMLxmERe02XDJG4t399_wYjxGb">
-                        <!-- <span>No Photo uploaded</span> -->
+                        <img (click)="ShowPhoto()" *ngIf="(helper.Photo$|async)"
+                            [src]="(helper.Photo$|async)|safeimage">
+                        <span *ngIf="!(helper.Photo$|async)">No Photo uploaded</span>
                     </div>
                 </label>
                 <button mat-fab color="primary" type="button" (click)="cam.click()">
                     <mat-icon>photo_camera</mat-icon>
                 </button>
-                <input style="display: none;" type="file" capture="camera" accept="image/*" #cam (change)="helper.OnFileSelected($event)">
+                <input style="display: none;" type="file" capture="camera" accept="image/*" #cam
+                    (change)="helper.OnFileSelected($event)">
             </div>
             <div class="row"><label><span>Mobile Number:</span><input formControlName="mobile" type="tel"></label>
             </div>
@@ -24,9 +25,8 @@
                 <label>
                     <span>QR Code:</span>
                     <div class="img">
-                        <img (click)="ShowQR()"
-                            src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/QR_code_for_mobile_English_Wikipedia.svg/1200px-QR_code_for_mobile_English_Wikipedia.svg.png">
-                        <!-- <span>QR code missing</span> -->
+                        <img (click)="ShowQR()" *ngIf="(helper.QR$|async)" [src]="(helper.QR$|async)|safeimage">
+                        <span *ngIf="!(helper.QR$|async)">QR code missing</span>
                     </div>
                 </label>
             </div>
@@ -39,11 +39,9 @@
 </div>
 
 <ng-template #person>
-    <img class="pic-fs"
-        src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQ_Y3DVd2Daj0zRYMiVMh8XE9JMLxmERe02XDJG4t399_wYjxGb">
+    <img class="pic-fs" [src]="(helper.Photo$|async)|safeimage">
 </ng-template>
 
 <ng-template #qr>
-    <img class="pic-fs"
-        src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/QR_code_for_mobile_English_Wikipedia.svg/1200px-QR_code_for_mobile_English_Wikipedia.svg.png">
+    <img class="pic-fs" [src]="(helper.QR$|async)|safeimage">
 </ng-template>
