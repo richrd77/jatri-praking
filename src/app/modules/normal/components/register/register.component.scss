@@ -25,6 +25,9 @@ div.wrapper {
                     grid-template-columns: 1fr;
                     grid-template-rows: 1em 1fr;
                     gap: 1.5em;
+                    &.cent {
+                        justify-items: center;
+                    }
                 }
                 &.action {
                     display: flex;
