@@ -1,0 +1,24 @@
+div.wrapper {
+    min-height: calc(100vh - var(--mat-toolbar-standard-height) - 10px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 1em;
+    > div.own {
+        box-shadow: 0 0 1px 0 black;
+        padding: 1.5em;
+        > h1 {
+            margin-bottom: 1em;
+        }
+        > div.row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1em;
+        }
+    }
+    > div.other {
+        box-shadow: 0 0 1px 0 black;
+    }
+}
