@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { DetailFacadeHelperService } from '../../helpers/detail-facade-helper.service';
 
 @Component({
@@ -9,6 +9,10 @@ import { DetailFacadeHelperService } from '../../helpers/detail-facade-helper.se
 })
 export class DetailFacadeComponent {
 
-  constructor(public helper: DetailFacadeHelperService) { }
-  
+  @Input({ required: true }) public title: string;
+
+  constructor(public helper: DetailFacadeHelperService) {
+    this.title = '';
+  }
+
 }
