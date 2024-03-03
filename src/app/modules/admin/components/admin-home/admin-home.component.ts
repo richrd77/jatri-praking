@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { AfterViewInit, Component, ViewChild } from '@angular/core';
+import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
@@ -6,11 +7,10 @@ import { MatTableDataSource } from '@angular/material/table';
   templateUrl: './admin-home.component.html',
   styleUrl: './admin-home.component.scss'
 })
-export class AdminHomeComponent {
+export class AdminHomeComponent implements AfterViewInit {
 
-  public dataSource: MatTableDataSource<any[]> = new MatTableDataSource<any[]>([]);
+  @ViewChild('pag') private paginator: MatPaginator | null;
 
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
   s: any[] = [
     { position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H' },
     { position: 2, name: 'Helium', weight: 4.0026, symbol: 'He' },
@@ -23,6 +23,17 @@ export class AdminHomeComponent {
     { position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F' },
     { position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne' },
   ];
+  public dataSource: MatTableDataSource<any[]> = new MatTableDataSource<any[]>(this.s);
 
-  
+  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
+
+  constructor() {
+    this.paginator = null;
+  }
+
+  ngAfterViewInit(): void {
+    console.log('pa', this.paginator);
+    this.dataSource.paginator = this.paginator;
+  }
+
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
 import { NgxScannerQrcodeComponent, ScannerQRCodeResult } from 'ngx-scanner-qrcode';
 
@@ -7,9 +7,13 @@ import { NgxScannerQrcodeComponent, ScannerQRCodeResult } from 'ngx-scanner-qrco
   templateUrl: './qr-reader.component.html',
   styleUrl: './qr-reader.component.scss'
 })
-export class QrReaderComponent implements OnInit {
+export class QrReaderComponent implements OnInit, OnDestroy {
 
   constructor(private ref: MatDialogRef<QrReaderComponent>) { }
+  
+  ngOnDestroy(): void {
+    this.handle(this.action, 'stop');
+  }
 
   ngOnInit(): void {
     setTimeout(() => {
