@@ -1,39 +1,39 @@
-import { AfterViewInit, Component, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
+import { AdminHomeHelperService } from '../helpers/admin-home-helper.service';
+import { UserDetail } from '../../../normal/models';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-admin-home',
   templateUrl: './admin-home.component.html',
-  styleUrl: './admin-home.component.scss'
+  styleUrl: './admin-home.component.scss',
+  providers: [AdminHomeHelperService]
 })
-export class AdminHomeComponent implements AfterViewInit {
+export class AdminHomeComponent implements AfterViewInit, OnInit, OnDestroy {
 
   @ViewChild('pag') private paginator: MatPaginator | null;
 
-  s: any[] = [
-    { position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H' },
-    { position: 2, name: 'Helium', weight: 4.0026, symbol: 'He' },
-    { position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li' },
-    { position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be' },
-    { position: 5, name: 'Boron', weight: 10.811, symbol: 'B' },
-    { position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C' },
-    { position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N' },
-    { position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O' },
-    { position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F' },
-    { position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne' },
-  ];
-  public dataSource: MatTableDataSource<any[]> = new MatTableDataSource<any[]>(this.s);
+  public dataSource: MatTableDataSource<UserDetail> = new MatTableDataSource<UserDetail>([]);
 
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
+  displayedColumns: string[] = ['phone', 'vehicle'];
 
-  constructor() {
+  private subscription: Subscription;
+
+  constructor(public helper: AdminHomeHelperService) {
     this.paginator = null;
+    this.subscription = this.helper.data$.subscribe(d => this.dataSource.data = d);
+  }
+  ngOnInit(): void {
+    this.helper.Fetch();
+  }
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
   }
 
   ngAfterViewInit(): void {
     console.log('pa', this.paginator);
     this.dataSource.paginator = this.paginator;
   }
-
 }

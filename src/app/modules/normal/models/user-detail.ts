@@ -1,16 +1,16 @@
 import { UserLog } from "./user-log";
 
 export class UserDetail {
-    public Phone: string;
-    public Vehicle: string;
+    public phone: string;
+    public vehicle: string;
     public photo: string;
     public qr: string;
     public key: string;
     public logs: UserLog[];
 
     constructor() {
-        this.Phone = '9999999999';
-        this.Vehicle = 'KA01HU8947';
+        this.phone = '9999999999';
+        this.vehicle = 'KA01HU8947';
         this.key = '123';
         this.logs = [];
         this.qr='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADIAQMAAACXljzdAAAABlBMVEX///8AAABVwtN+AAAACXBIWXMAAA7EAAAOxAGVKw4bAAABAklEQVRYheWXzRGEIAyFn+OBoyVQypbmlkYplOCRg2M2P8DijDYQctCBzwuP5CUCr7GTRUa4gE8OdX35I8kOnLcCUEI4dR08ksgnZqIa8Na58PqYk3R13BNAtvKcpNWCfMBV/1AlTkjzt60s9Ox87skQmgd4ChfENNCXdDMqq+SGWIA7YrUN1NuGkLHqZyBNnUPyIMWi6UCjbk4IXz2JpUUSDThWAQdmIruNbCZSVecLqwVfpIdkvIR8lrbRyd2TKgvp/KbdTPd6lTgiSRVoU5pp0DLeGYlUZ/K/k4/dbCpC1Ag+d3W8Ef0DM3+bjtRaaGbH3cwp6f4mz6bB3fm8k9f4AfDR88RaJ/2pAAAAAElFTkSuQmCC';
