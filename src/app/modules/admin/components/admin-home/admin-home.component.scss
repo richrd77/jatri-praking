@@ -30,6 +30,10 @@ div.wrapper {
                 > span.char {
                     margin: 0 10px;
                 }
+                > span.val {
+                    font-size: 1.3rem;
+                    text-decoration: underline dotted #861f41;
+                }
             }
         }
     }

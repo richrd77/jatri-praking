@@ -16,6 +16,7 @@ export class AdminHomeComponent implements AfterViewInit, OnInit, OnDestroy {
 
   @ViewChild('pag') private paginator: MatPaginator | null;
   @ViewChild('det') private detailsTemplate: TemplateRef<any> | null;
+  @ViewChild('stat') private statsTemplate: TemplateRef<any> | null;
 
   public dataSource: MatTableDataSource<UserDetail> = new MatTableDataSource<UserDetail>([]);
 
@@ -27,6 +28,7 @@ export class AdminHomeComponent implements AfterViewInit, OnInit, OnDestroy {
     private dialog: MatDialog) {
     this.paginator = null;
     this.detailsTemplate = null;
+    this.statsTemplate = null;
     this.subscription = this.helper.data$.subscribe(d => this.dataSource.data = d);
   }
   ngOnInit(): void {
@@ -50,6 +52,12 @@ export class AdminHomeComponent implements AfterViewInit, OnInit, OnDestroy {
     console.log('clicked', row);
     if (this.detailsTemplate) {
       this.dialog.open(this.detailsTemplate, { data: row });
+    }
+  }
+
+  public ShowStat(): void {
+    if (this.statsTemplate) {
+      this.dialog.open(this.statsTemplate);
     }
   }
 }

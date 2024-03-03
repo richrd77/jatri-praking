@@ -2,14 +2,26 @@
     <div class="box upper">
         <h1>Dashboard</h1>
         <div class="highlights">
-            <label><span class="title">Vehicle count in Parking lot</span><span class="char">:</span><span
-                    class="val">50</span></label>
-            <label><span class="title">Vehicle count Went out</span><span class="char">:</span><span
-                    class="val">10</span></label>
-            <label><span class="title">Vehicle count in Total</span><span class="char">:</span><span
-                    class="val">60</span></label>
-            <label><span class="title">Vehicle count frequently roaming</span><span class="char">:</span><span
-                    class="val">4</span></label>
+            <label>
+                <span class="title">Vehicle count in Parking lot</span>
+                <span class="char">:</span>
+                <span class="val" (click)="ShowStat()">50</span>
+            </label>
+            <label>
+                <span class="title">Vehicle count Went out</span>
+                <span class="char">:</span>
+                <span class="val" (click)="ShowStat()">10</span>
+            </label>
+            <label>
+                <span class="title">Vehicle count in Total</span>
+                <span class="char">:</span>
+                <span class="val" (click)="ShowStat()">60</span>
+            </label>
+            <label>
+                <span class="title">Vehicle count frequently roaming</span>
+                <span class="char">:</span>
+                <span class="val" (click)="ShowStat()">4</span>
+            </label>
         </div>
     </div>
     <div class="box lower">
@@ -36,6 +48,10 @@
 </div>
 <ng-template #det let-data>
     <app-details [key]="data.phone" [isKeyMode]="false"></app-details>
+</ng-template>
+
+<ng-template #stat>
+    <p>Show Details</p>
 </ng-template>
 <!--
 
