@@ -23,7 +23,7 @@ LOAD_WASM().subscribe();
 
 @NgModule({
     declarations: [HomeComponent, RegisterComponent, QrReaderComponent, DetailsComponent, CheckoutComponent, DetailFacadeComponent, CheckinComponent],
-    exports: [RouterModule],
+    exports: [RouterModule, DetailsComponent],
     imports: [JatriCommonModue, CommonModule,
         RouterModule.forChild(routes), ReactiveFormsModule,
         NgxScannerQrcodeModule, SafeImage]

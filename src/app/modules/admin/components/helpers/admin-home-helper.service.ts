@@ -37,7 +37,7 @@ export class AdminHomeHelperService {
         this.subject.next(this.data);
     }
 
-    public ShowDetail(row: any): void {
-        console.log('clicked', row);
-    }
+    // public ShowDetail(row: any): void {
+    //     console.log('clicked', row);
+    // }
 }

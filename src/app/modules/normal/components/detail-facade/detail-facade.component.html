@@ -9,6 +9,7 @@
         </div>
     </div>
     <div class="other">
-        <app-details *ngIf="(helper.ScannedKey$|async) as key" [key]="key"></app-details>
+        <app-details *ngIf="(helper.ScannedKey$|async) as key" [key]="key"
+        [isKeyMode]="true"></app-details>
     </div>
 </div>

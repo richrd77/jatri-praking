@@ -10,7 +10,7 @@ export class DetailsHelper {
         return this.detailBeh.asObservable();
     }
 
-    public LoadDetails(key: string): void {
+    public LoadDetails(key: string, isKey: boolean): void {
 
     }
 }

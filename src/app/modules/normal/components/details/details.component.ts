@@ -10,7 +10,8 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class DetailsComponent implements OnInit {
 
-  @Input({ required: true }) public key: string;
+  @Input() public key: string;
+  @Input({ required: true }) public isKeyMode: boolean;
 
   @ViewChild('person', { read: TemplateRef }) private personTemplate: TemplateRef<any> | null;
   @ViewChild('qr', { read: TemplateRef }) private qrTemplate: TemplateRef<any> | null;
@@ -20,11 +21,12 @@ export class DetailsComponent implements OnInit {
     this.personTemplate = null;
     this.qrTemplate = null;
     this.key = '';
+    this.isKeyMode = false;
   }
 
   ngOnInit(): void {
-    if(this.key) {
-      this.helper.LoadDetails(this.key);
+    if (this.key) {
+      this.helper.LoadDetails(this.key, this.isKeyMode);
     }
   }
 
