@@ -81,11 +81,50 @@ a {
   object-fit: contain;
 }
 
-td,th {
+td,
+th {
   font-family: "Madimi One", sans-serif !important;
   font-weight: normal;
   font-size: 1rem;
 }
 th {
   font-weight: 800;
+}
+.mat-mdc-paginator-outer-container {
+  border-color: var(--mat-table-row-item-outline-color, rgba(0, 0, 0, 0.12));
+  border-width: var(--mat-table-row-item-outline-width, 1px);
+  border-style: solid;
+  border-left: transparent;
+  border-right: transparent;
+}
+div.admin-tbl {
+  table {
+    thead {
+      > tr {
+        @media (max-width: 457px) {
+          display: none;
+        }
+      }
+    }
+    tbody {
+      @media (max-width: 457px) {
+        > tr {
+          td {
+            display: block;
+            border-bottom-color: transparent;
+            &:last-child {
+              border-bottom-color: var(--mat-table-row-item-outline-color, rgba(0, 0, 0, 0.12));
+              border-bottom-width: var(--mat-table-row-item-outline-width, 1px);
+              border-bottom-style: solid;
+            }
+            &::before {
+              content: attr(data-header);
+              font-weight: bold;
+              margin-right: 10px;
+            }
+          }
+        }
+      }
+    }
+  }
 }
