@@ -7,7 +7,6 @@ import { NormalModule } from "../normal/normal.module";
 
 const routes: Routes = [
     { path: 'admin', component: AdminHomeComponent },
-    { path: 'admin1', component: AdminHomeComponent },
 ];
 
 
