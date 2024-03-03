@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { AdminHomeHelperService } from '../helpers/admin-home-helper.service';
@@ -35,5 +35,10 @@ export class AdminHomeComponent implements AfterViewInit, OnInit, OnDestroy {
   ngAfterViewInit(): void {
     console.log('pa', this.paginator);
     this.dataSource.paginator = this.paginator;
+  }
+
+  applyFilter(filterValue: string) {
+    console.log('filter', filterValue);
+    this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 }
