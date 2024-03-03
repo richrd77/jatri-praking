@@ -7,13 +7,13 @@ import { NgxScannerQrcodeComponent, ScannerQRCodeResult } from 'ngx-scanner-qrco
   templateUrl: './qr-reader.component.html',
   styleUrl: './qr-reader.component.scss'
 })
-export class QrReaderComponent implements OnInit, OnDestroy {
+export class QrReaderComponent implements OnInit{
 
   constructor(private ref: MatDialogRef<QrReaderComponent>) { }
   
-  ngOnDestroy(): void {
-    this.handle(this.action, 'stop');
-  }
+  // ngOnDestroy(): void {
+  //   this.handle(this.action, 'stop');
+  // }
 
   ngOnInit(): void {
     setTimeout(() => {
