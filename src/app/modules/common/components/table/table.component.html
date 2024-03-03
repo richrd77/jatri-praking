@@ -1,0 +1,18 @@
+<input #fil (keyup)="applyFilter(fil.value)" type="text" placeholder="type to search.."
+            style="width: -webkit-fill-available;">
+<div class="admin-tbl">
+    <table mat-table [dataSource]="dataSource">
+        <ng-container matColumnDef="phone">
+            <th mat-header-cell *matHeaderCellDef> Phone Number. </th>
+            <td mat-cell *matCellDef="let element" data-header="Phone Number:"> {{element.phone}} </td>
+        </ng-container>
+        <ng-container matColumnDef="vehicle">
+            <th mat-header-cell *matHeaderCellDef> Vehicle Reg. </th>
+            <td mat-cell *matCellDef="let element" data-header="Vehicle Reg:"> {{element.vehicle}} </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="cols"></tr>
+        <tr mat-row *matRowDef="let row; columns: cols;" (click)="ShowDetail(row)"></tr>
+    </table>
+    <mat-paginator #pag [length]="dataSource.data.length" [pageSize]="5" [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page">
+    </mat-paginator>
+</div>
