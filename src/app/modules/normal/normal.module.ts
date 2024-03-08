@@ -6,23 +6,28 @@ import { CommonModule } from "@angular/common";
 import {
     RegisterComponent, DetailsComponent,
     QrReaderComponent, CheckoutComponent,
-    DetailFacadeComponent, CheckinComponent
+    DetailFacadeComponent, CheckinComponent,
+    NormalBaseComponent
 } from './components';
 import { ReactiveFormsModule } from "@angular/forms";
 import { LOAD_WASM, NgxScannerQrcodeModule } from "ngx-scanner-qrcode";
 import { SafeImage } from "../common/pipes/safe-image.pipe";
 
 const routes: Routes = [
-    { path: 'register', component: RegisterComponent },
-    { path: 'checkout', component: CheckoutComponent },
-    { path: 'checkin', component: CheckinComponent },
-    { path: '', component: HomeComponent, pathMatch: 'full' },
+    {
+        path: '', component: NormalBaseComponent, children: [
+            { path: 'register', component: RegisterComponent },
+            { path: 'checkout', component: CheckoutComponent },
+            { path: 'checkin', component: CheckinComponent },
+            { path: '', component: HomeComponent, pathMatch: 'full' },
+        ]
+    },
 ];
 
 LOAD_WASM().subscribe();
 
 @NgModule({
-    declarations: [HomeComponent, RegisterComponent, QrReaderComponent, DetailsComponent, CheckoutComponent, DetailFacadeComponent, CheckinComponent],
+    declarations: [HomeComponent, RegisterComponent, QrReaderComponent, DetailsComponent, CheckoutComponent, DetailFacadeComponent, CheckinComponent, NormalBaseComponent],
     exports: [RouterModule, DetailsComponent],
     imports: [JatriCommonModue, CommonModule,
         RouterModule.forChild(routes), ReactiveFormsModule,

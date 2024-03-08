@@ -1,7 +1,7 @@
 import { AfterViewInit, Component, ElementRef, OnDestroy, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
-import { AdminHomeHelperService } from '../helpers/admin-home-helper.service';
+import { AdminHomeHelperService } from '../../helpers/admin-home-helper.service';
 import { UserDetail } from '../../../normal/models';
 import { Subscription } from 'rxjs';
 import { MatDialog } from '@angular/material/dialog';

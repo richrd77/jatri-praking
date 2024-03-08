@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { BehaviorSubject, Observable } from "rxjs";
-import { UserDetail } from "../../../normal/models";
+import { UserDetail } from "../../normal/models";
 
 @Injectable()
 export class AdminHomeHelperService {
