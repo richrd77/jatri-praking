@@ -2,23 +2,35 @@
     <div class="box upper">
         <h1>Dashboard</h1>
         <div class="highlights">
-            <label>
-                <span class="title">Vehicle count in Parking lot</span>
+            <label class="in">
+                <label class="title">
+                    <span>Vehicle count</span>
+                    <mat-icon>local_parking</mat-icon>
+                </label>
                 <span class="char">:</span>
                 <span class="val" (click)="ShowStat()">50</span>
             </label>
-            <label>
-                <span class="title">Vehicle count Went out</span>
+            <label class="out">
+                <label class="title">
+                    <span>Vehicle count</span>
+                    <mat-icon>arrow_outward</mat-icon>
+                </label>
                 <span class="char">:</span>
                 <span class="val" (click)="ShowStat()">10</span>
             </label>
-            <label>
-                <span class="title">Vehicle count in Total</span>
+            <label class="tot">
+                <label class="title">
+                    <span>Vehicle count</span>
+                    <mat-icon>functions</mat-icon>
+                </label>
                 <span class="char">:</span>
                 <span class="val" (click)="ShowStat()">60</span>
             </label>
-            <label>
-                <span class="title">Vehicle count frequently roaming</span>
+            <label class="fre">
+                <label class="title">
+                    <span>Vehicle count</span>
+                    <mat-icon>autorenew</mat-icon>
+                </label>
                 <span class="char">:</span>
                 <span class="val" (click)="ShowStat()">4</span>
             </label>
@@ -26,9 +38,8 @@
     </div>
     <div class="box lower">
         <div class="t">
-            <app-table [data]="(helper.data$|async)||[]" 
-            [cols]="displayedColumns"
-            (rowClickEvent)="ShowDetail($event)"></app-table>
+            <app-table [data]="(helper.data$|async)||[]" [cols]="displayedColumns"
+                (rowClickEvent)="ShowDetail($event)"></app-table>
         </div>
     </div>
 </div>
