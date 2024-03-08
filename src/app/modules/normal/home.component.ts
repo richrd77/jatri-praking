@@ -6,7 +6,8 @@ import { Component } from "@angular/core";
     <button mat-raised-button (click)="Add()" color="primary">Mat</button>
     <p>{{val}}</p>
     <a routerLink="register">Register</a>
-    
+    <app-button text="click me" [inprogress]="true"
+    color="primary" (clickEvent)="Clicked()"></app-button>
     `
 })
 export class HomeComponent {
@@ -22,5 +23,9 @@ export class HomeComponent {
     private set updateVal(v: number) {
         const newVal = this.val + v;
         sessionStorage.setItem('val', JSON.stringify(newVal));
+    }
+
+    public Clicked(): void {
+        console.log('clicked');
     }
 }
