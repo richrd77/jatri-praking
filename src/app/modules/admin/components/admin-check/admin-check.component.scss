@@ -1,0 +1,42 @@
+div.wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+    gap: 1em;
+    > div.box {
+        background-color: white;
+        border-radius: 7px;
+        padding: 1em;
+    }
+    > div.box.top {
+        > h1 {
+            margin-bottom: 1em;
+            @media (max-width:405px) {
+                font-size: 1.5rem;
+            }
+        }
+        > form {
+            > label {
+                display: grid;
+                grid-template-columns: 13ch 265px;
+                @media (max-width: 554px) {
+                    grid-template-columns: 1fr;
+                    grid-template-rows: 1em 1fr;
+                    gap: 0.8em;
+                }
+                > span {
+                    margin-right: 10px;
+                    @media (max-width: 530px) {
+                        margin-right: 0;
+                        margin-bottom: 0.7em;
+                    }
+                }
+            }
+            >div {
+                @media (max-width: 554px) {
+                    margin-top: 1em;
+                }
+            }
+        }
+    }
+}

@@ -7,6 +7,7 @@ import {
     AdminBaseComponent, AdminHomeComponent,
     AdmiCheckoutComponent, AdmiCheckinComponent
 } from './components';
+import { AdminCheckComponent } from './components/admin-check/admin-check.component';
 
 const routes: Routes = [
     {
@@ -20,7 +21,7 @@ const routes: Routes = [
 
 
 @NgModule({
-    declarations: [AdminHomeComponent, AdminBaseComponent, AdmiCheckinComponent, AdmiCheckoutComponent],
+    declarations: [AdminHomeComponent, AdminBaseComponent, AdmiCheckinComponent, AdmiCheckoutComponent, AdminCheckComponent],
     exports: [RouterModule],
     imports: [JatriCommonModue, CommonModule,
         NormalModule,

@@ -1,0 +1,18 @@
+<div class="wrapper">
+    <div class="box top">
+        <h1>{{title}}</h1>
+        <form>
+            <label>
+                <span>Phone Number:</span>
+                <input type="tel">
+            </label>
+            <div>
+                <app-button color="primary" [inprogress]="false" text="Search"></app-button>
+            </div>
+        </form>
+    </div>
+    <div class="box bottom">
+        <app-table [data]="data" [cols]="displayedColumns"
+                (rowClickEvent)="ShowDetail($event)"></app-table>
+    </div>
+</div>
