@@ -6,7 +6,8 @@ import { NormalModule } from "../normal/normal.module";
 import {
     AdminBaseComponent, AdminHomeComponent,
     AdmiCheckoutComponent, AdmiCheckinComponent,
-    AdminCheckComponent, AdminStatsComponent
+    AdminCheckComponent, AdminStatsComponent,
+    AdminTilesComponent
 } from './components';
 import { HttpClientModule } from "@angular/common/http";
 
@@ -25,7 +26,7 @@ const routes: Routes = [
 @NgModule({
     declarations: [AdminHomeComponent, AdminBaseComponent,
         AdmiCheckinComponent, AdmiCheckoutComponent,
-        AdminCheckComponent, AdminStatsComponent],
+        AdminCheckComponent, AdminStatsComponent, AdminTilesComponent],
     exports: [RouterModule],
     imports: [JatriCommonModue, CommonModule,
         NormalModule, HttpClientModule,
