@@ -1,0 +1,9 @@
+<div class="wrap">
+    <div class="first">
+        <audio #audioTag controls></audio>
+    </div>
+    <div class="second">
+        <mat-icon *ngIf="IsRecording" (click)="Stop()">stop_circle</mat-icon>
+        <mat-icon *ngIf="!IsRecording" (click)="StartAudio()">radio_button_checked</mat-icon>
+    </div>
+</div>

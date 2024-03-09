@@ -1,0 +1,14 @@
+div.mic {
+    position: fixed;
+    bottom: 1em;
+    right: 1em;
+    padding: 10px;
+    border-radius: 7px;
+    background-color: #861f41;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    > mat-icon {
+    }
+}
