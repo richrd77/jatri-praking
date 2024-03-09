@@ -22,6 +22,7 @@ import { AdminModule } from './modules/admin/admin.module';
   ],
   providers: [
     provideAnimationsAsync(),
+    { provide: 'api_url', useValue: 'Testing 1234' }
   ],
   bootstrap: [AppComponent]
 })

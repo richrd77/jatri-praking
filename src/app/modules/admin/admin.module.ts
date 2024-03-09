@@ -8,6 +8,7 @@ import {
     AdmiCheckoutComponent, AdmiCheckinComponent
 } from './components';
 import { AdminCheckComponent } from './components/admin-check/admin-check.component';
+import { HttpClientModule } from "@angular/common/http";
 
 const routes: Routes = [
     {
@@ -24,7 +25,7 @@ const routes: Routes = [
     declarations: [AdminHomeComponent, AdminBaseComponent, AdmiCheckinComponent, AdmiCheckoutComponent, AdminCheckComponent],
     exports: [RouterModule],
     imports: [JatriCommonModue, CommonModule,
-        NormalModule,
+        NormalModule, HttpClientModule,
         RouterModule.forChild(routes)]
 })
 export class AdminModule { }
