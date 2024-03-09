@@ -1,0 +1,34 @@
+<div class="highlights">
+    <label class="in">
+        <label class="title">
+            <span>Vehicle count</span>
+            <mat-icon>local_parking</mat-icon>
+        </label>
+        <span class="char">:</span>
+        <span class="val" (click)="StatClickEvent.emit(1)">50</span>
+    </label>
+    <label class="out">
+        <label class="title">
+            <span>Vehicle count</span>
+            <mat-icon>arrow_outward</mat-icon>
+        </label>
+        <span class="char">:</span>
+        <span class="val" (click)="StatClickEvent.emit(2)">10</span>
+    </label>
+    <label class="tot">
+        <label class="title">
+            <span>Vehicle count</span>
+            <mat-icon>functions</mat-icon>
+        </label>
+        <span class="char">:</span>
+        <span class="val" (click)="StatClickEvent.emit(3)">60</span>
+    </label>
+    <label class="fre">
+        <label class="title">
+            <span>Vehicle count</span>
+            <mat-icon>autorenew</mat-icon>
+        </label>
+        <span class="char">:</span>
+        <span class="val" (click)="StatClickEvent.emit(4)">4</span>
+    </label>
+</div>

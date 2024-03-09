@@ -1,40 +1,7 @@
 <div class="wrapper">
     <div class="box upper">
         <h1>Dashboard</h1>
-        <div class="highlights">
-            <label class="in">
-                <label class="title">
-                    <span>Vehicle count</span>
-                    <mat-icon>local_parking</mat-icon>
-                </label>
-                <span class="char">:</span>
-                <span class="val" (click)="ShowStat()">50</span>
-            </label>
-            <label class="out">
-                <label class="title">
-                    <span>Vehicle count</span>
-                    <mat-icon>arrow_outward</mat-icon>
-                </label>
-                <span class="char">:</span>
-                <span class="val" (click)="ShowStat()">10</span>
-            </label>
-            <label class="tot">
-                <label class="title">
-                    <span>Vehicle count</span>
-                    <mat-icon>functions</mat-icon>
-                </label>
-                <span class="char">:</span>
-                <span class="val" (click)="ShowStat()">60</span>
-            </label>
-            <label class="fre">
-                <label class="title">
-                    <span>Vehicle count</span>
-                    <mat-icon>autorenew</mat-icon>
-                </label>
-                <span class="char">:</span>
-                <span class="val" (click)="ShowStat()">4</span>
-            </label>
-        </div>
+        <app-admin-stats></app-admin-stats>
     </div>
     <div class="box lower">
         <div class="t">

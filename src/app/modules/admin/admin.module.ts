@@ -5,9 +5,9 @@ import { CommonModule } from "@angular/common";
 import { NormalModule } from "../normal/normal.module";
 import {
     AdminBaseComponent, AdminHomeComponent,
-    AdmiCheckoutComponent, AdmiCheckinComponent
+    AdmiCheckoutComponent, AdmiCheckinComponent,
+    AdminCheckComponent, AdminStatsComponent
 } from './components';
-import { AdminCheckComponent } from './components/admin-check/admin-check.component';
 import { HttpClientModule } from "@angular/common/http";
 
 const routes: Routes = [
@@ -16,13 +16,16 @@ const routes: Routes = [
             { path: '', component: AdminHomeComponent },
             { path: 'checkin', component: AdmiCheckinComponent },
             { path: 'checkout', component: AdmiCheckoutComponent },
+            { path: 'stats', component: AdminStatsComponent },
         ]
     }
 ];
 
 
 @NgModule({
-    declarations: [AdminHomeComponent, AdminBaseComponent, AdmiCheckinComponent, AdmiCheckoutComponent, AdminCheckComponent],
+    declarations: [AdminHomeComponent, AdminBaseComponent,
+        AdmiCheckinComponent, AdmiCheckoutComponent,
+        AdminCheckComponent, AdminStatsComponent],
     exports: [RouterModule],
     imports: [JatriCommonModue, CommonModule,
         NormalModule, HttpClientModule,
