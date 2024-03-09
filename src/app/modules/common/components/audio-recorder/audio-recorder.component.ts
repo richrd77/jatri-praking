@@ -1,5 +1,6 @@
-import { Component, ElementRef, OnInit, TemplateRef, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { AudioService } from '../../services/audio.service';
 
 @Component({
   selector: 'app-audio-recorder',
@@ -14,11 +15,14 @@ export class AudioRecorderComponent implements OnInit {
 
   recorder: MediaRecorder | null;
 
-  constructor() {
+  constructor(private ser: AudioService) {
     this.recorder = null;
   }
+
+
   ngOnInit(): void {
     this.StartAudio();
+    this.ser.LoadAudio(this.audio.nativeElement);
   }
 
   public StartAudio(): void {
@@ -42,8 +46,15 @@ export class AudioRecorderComponent implements OnInit {
       let blob = new Blob(chunks, { type: 'audio/mp3;' });
       chunks = [];
       var blobUrl = URL.createObjectURL(blob);
-      this.audio.nativeElement.src = blobUrl;
+      console.log(blobUrl);
       this.IsRecording = false;
+
+
+      let reader = new FileReader();
+      reader.readAsDataURL(blob);
+      reader.onloadend = function () {
+        console.log(reader.result);
+      }
     };
 
     this.recorder.start();

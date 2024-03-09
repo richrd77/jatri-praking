@@ -5,9 +5,10 @@ import {
   ButtonComponent, AudioComponent, AudioRecorderComponent
 } from './components';
 import { CommonModule } from "@angular/common";
+import { HttpClientModule } from "@angular/common/http";
 
 @NgModule({
-  imports: [JatriMatModue, CommonModule],
+  imports: [JatriMatModue, CommonModule, HttpClientModule],
   exports: [JatriMatModue, TableComponent,
     HeaderComponent, ButtonComponent, AudioComponent],
   declarations: [
