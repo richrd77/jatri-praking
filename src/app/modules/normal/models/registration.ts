@@ -1,15 +1,17 @@
+import moment from "moment";
+
 export class Registration {
     mobile: string;
     vehicle: string;
     key: string;
     photo: string;
-    checkin: Date;
+    checkin: moment.Moment;
 
     constructor({ mobile, vehicle, key }: any, photo: string) {
         this.mobile = mobile;
         this.vehicle = vehicle;
         this.key = key;
-        this.checkin = new Date();
+        this.checkin = moment.utc();
         this.photo = photo;
     }
 }
