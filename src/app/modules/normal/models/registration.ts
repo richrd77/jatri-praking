@@ -5,11 +5,11 @@ export class Registration {
     photo: string;
     checkin: Date;
 
-    constructor({ mobile, vehicle, key }: any) {
+    constructor({ mobile, vehicle, key }: any, photo: string) {
         this.mobile = mobile;
         this.vehicle = vehicle;
         this.key = key;
         this.checkin = new Date();
-        this.photo = '';
+        this.photo = photo;
     }
 }

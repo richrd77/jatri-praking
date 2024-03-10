@@ -4,6 +4,8 @@ import { MatDialog } from "@angular/material/dialog";
 import { BehaviorSubject, Observable, defer } from "rxjs";
 import { QrReaderComponent } from "../components";
 import { Registration } from "../models";
+import { PostRequest, PostRequestTypes } from "../../common/models";
+import { NormalService } from "../services/normal.service";
 
 @Injectable()
 export class RegistrationHelperService {
@@ -20,12 +22,20 @@ export class RegistrationHelperService {
 
     public fGroup: FormGroup;
 
-    constructor(private dialog: MatDialog) {
+    constructor(private dialog: MatDialog,
+        private service: NormalService) {
+        this.fGroup = new FormGroup({});
+        this.Init();
+    }
+
+    private Init(): void {
         this.fGroup = new FormGroup({
             mobile: new FormControl('', [Validators.required, Validators.pattern('\\d{10}')]),
             vehicle: new FormControl('', [Validators.required]),
             key: new FormControl<string | undefined>(undefined)
-        })
+        });
+        this.photoBehavour.next('');
+        this.qrPhotoBehavour.next('');
     }
 
     public OnFileSelected(ev: any): void {
@@ -60,7 +70,14 @@ export class RegistrationHelperService {
     public Save(): void {
         alert(JSON.stringify(this.fGroup.getRawValue()));
         console.log('submit', this.fGroup.valid, this.fGroup.getRawValue());
-        const dataTobePosted = new Registration(this.fGroup.getRawValue());
-        dataTobePosted.photo = this.photoBehavour.value;
+        const dataTobePosted = new PostRequest<Registration>
+            (PostRequestTypes.NORMAL_REGISTRATION,
+                new Registration(this.fGroup.getRawValue(), this.photoBehavour.value));
+
+        this.service.Register(dataTobePosted)
+            .subscribe(d => {
+                console.log('registration', d);
+                //this.Init();
+            });
     }
 }

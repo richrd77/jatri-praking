@@ -1,12 +1,13 @@
 import { Component, TemplateRef, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { RegistrationHelperService } from '../../helpers/registration-helper.service';
+import { NormalService } from '../../services/normal.service';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrl: './register.component.scss',
-  providers: [RegistrationHelperService]
+  providers: [RegistrationHelperService, NormalService]
 })
 export class RegisterComponent {
   @ViewChild('person', { read: TemplateRef }) private personTemplate: TemplateRef<any> | null;
