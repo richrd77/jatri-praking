@@ -2,14 +2,15 @@
     <div class="own">
         <h1>{{title}}</h1>
         <div class="row">
-            <button mat-raised-button color="primary" (click)="helper.ScanQrCode()">Scan QR Code</button>
+            <app-button text="Scan QR Code" color="primary" 
+                [inprogress]="false"
+                (clickEvent)="helper.ScanQrCode()"></app-button>
             <div>
                 <ng-content></ng-content>
             </div>
         </div>
     </div>
     <div class="other">
-        <app-details *ngIf="(helper.ScannedKey$|async) as key" [key]="key"
-        [isKeyMode]="true"></app-details>
+        <app-details *ngIf="(helper.ScannedKey$|async) as key" [key]="key" [isKeyMode]="true"></app-details>
     </div>
 </div>

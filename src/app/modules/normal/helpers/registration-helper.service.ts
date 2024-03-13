@@ -74,7 +74,7 @@ export class RegistrationHelperService {
             (PostRequestTypes.NORMAL_REGISTRATION,
                 new Registration(this.fGroup.getRawValue(), this.photoBehavour.value));
 
-        this.service.Register(dataTobePosted)
+        this.service.PostData<Registration, string>(dataTobePosted)
             .subscribe(d => {
                 console.log('registration', d);
                 //this.Init();

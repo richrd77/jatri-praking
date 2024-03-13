@@ -4,7 +4,7 @@ export class UserDetail {
     public phone: string;
     public vehicle: string;
     public photo: string;
-    public qr: string;
+    public qr: string; //not required
     public key: string;
     public logs: UserLog[];
 
