@@ -24,7 +24,7 @@ import { CommonConstants } from './modules/common/constants/common.constants';
     provideAnimationsAsync(),
     {
       provide: CommonConstants.API_URL_TOKEN,
-      useValue: 'https://script.google.com/macros/s/AKfycbzwzB9I8XXaRu7BHRz-83B52g2wxe9mfJ0zOVuZJShZQ1aW9l0gNAh2ZTQ_UxedkV9s0A/exec'
+      useValue: 'https://script.google.com/macros/s/AKfycbzYoFETTtlEIlWU6t1MVaDlbFtrDSXB-ZQZegogWPjANtTSxicPJkc08iZC7ZlietC1Jw/exec'
     }
   ],
   bootstrap: [AppComponent]

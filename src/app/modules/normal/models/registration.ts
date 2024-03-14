@@ -1,14 +1,14 @@
 import moment from "moment";
 
 export class Registration {
-    mobile: string;
+    phone: string;
     vehicle: string;
     key: string;
     photo: string;
     checkin: moment.Moment;
 
     constructor({ mobile, vehicle, key }: any, photo: string) {
-        this.mobile = mobile;
+        this.phone = mobile;
         this.vehicle = vehicle;
         this.key = key;
         this.checkin = moment.utc();
